@@ -1,7 +1,7 @@
 /*
  * Developer:                MD. MUZAHIDUL ISLAM
  * Email:                    MUZAHID.ICT@GMAIL.COM  
- * Development Environment:  JDK 1.6
+ * Environment:  			 JDK 1.6
  * Date:                     14-MAR-2015 
  *  */
 package org.my.main.stoc;
@@ -24,13 +24,13 @@ public class StrToClazz {
 		String path = packageName;
 		path = path.replace(".", File.separator);
 
-		String AbsolutePath = StrToClazz.class.getProtectionDomain()
+		String absSrcPath = StrToClazz.class.getProtectionDomain()
 				.getCodeSource().getLocation().getPath();
 
-		path = AbsolutePath + File.separator + path;
+		path = absSrcPath + File.separator + path;
 
-		// create the source
-		String dirName = AbsolutePath;
+		// create sub-directories and the source file
+		String dirName = absSrcPath;
 		for (String subdirName : packageName.split("\\.")) {
 			dirName += File.separator + subdirName.trim();
 			File dir = new File(dirName);
@@ -45,14 +45,14 @@ public class StrToClazz {
 		writer.write(classBody);
 		writer.close();
 
-		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-		StandardJavaFileManager fileManager = compiler.getStandardFileManager(
+		JavaCompiler jCompiler = ToolProvider.getSystemJavaCompiler();
+		StandardJavaFileManager fileManager = jCompiler.getStandardFileManager(
 				null, null, null);
 
 		fileManager.setLocation(StandardLocation.SOURCE_PATH,
 				Arrays.asList(new File("" + StandardLocation.SOURCE_PATH)));
 		// Compile the file
-		compiler.getTask(
+		jCompiler.getTask(
 				null,
 				fileManager,
 				null,
