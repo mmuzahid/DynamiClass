@@ -1,7 +1,7 @@
 /*
  * Developer:                MD. MUZAHIDUL ISLAM
- * Email:                    MUZAHID.ICT@GMAIL.COM  
- * Environment:  			 JDK 1.6
+ * Email:                    CV.MUZAHID@GMAIL.COM  
+ * Environment:  	     JDK 1.6
  * Date:                     14-MAR-2015 
  *  */
 package org.my.main.stoc;
@@ -18,6 +18,9 @@ public class StrToClazz {
 
 	/**
 	 * compile class
+	 * @param packageName - package name
+	 * @param className - class name
+	 * @param classBody - content of class
 	 * */
 	private static void compileClass(String packageName, String className,
 			String classBody) throws IOException {
