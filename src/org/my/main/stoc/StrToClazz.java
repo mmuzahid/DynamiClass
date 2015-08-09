@@ -85,10 +85,10 @@ public class StrToClazz {
 	 * */
 	private static String parsePackageName(String classBody) {
 		String pkgName = "";
-		for (String classKeyword : new String[] { "package" }) {
-			int index = classBody.indexOf(classKeyword);
+		for (String pkgKeyword : new String[] { "package" }) {
+			int index = classBody.indexOf(pkgKeyword);
 			if (index != -1) {
-				pkgName = classBody.substring(index + classKeyword.length(),
+				pkgName = classBody.substring(index + pkgKeyword.length(),
 						classBody.indexOf(";", index)).trim();
 			}
 		}		
